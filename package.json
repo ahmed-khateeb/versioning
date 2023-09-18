@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "release-it",
-    "release-ci": "release-it --ci",
-    "release-ci-version": "release-it --only-version"
+    "release-ci": "release-it --ci"
   },
   "author": "",
   "license": "ISC",
