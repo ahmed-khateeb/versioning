@@ -22,8 +22,11 @@ jobs:
       - name: Run Release It
         run: |
           echo Pushing on Branch ${GITHUB_REF##*/}
+          git config --global user.email "ahmed.elkhateeb@ww.com"
           npm ci
           npm run release-ci-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   deploy-main:
     name: Deploy To Main
     runs-on: ubuntu-latest
