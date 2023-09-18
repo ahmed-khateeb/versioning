@@ -1,12 +1,13 @@
 {
   "name": "versioning",
-  "version": "1.5.0",
+  "version": "1.4.2",
   "description": "Test Manual release version",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "release-it",
-    "release-ci": "release-it --only-version"
+    "release-ci": "release-it --ci",
+    "release-ci-version": "release-it --only-version"
   },
   "author": "",
   "license": "ISC",

@@ -19,9 +19,11 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
-      - name: Echo
+      - name: Run Release It
         run: |
           echo Pushing on Branch ${GITHUB_REF##*/}
+          npm ci
+          npm run release-ci-version
   deploy-main:
     name: Deploy To Main
     runs-on: ubuntu-latest
