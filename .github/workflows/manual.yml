@@ -1,0 +1,33 @@
+name: Manual Version Bump
+
+env:
+  CI: true
+  GITHUB_BUILD_NUMBER: ${{ github.run_number }}
+  GITHUB_BUILD_ID: ${{ github.run_id }}
+  GITHUB_TOKEN: ${{ secrets.AHMAD_GITHUB_TOKEN }}
+
+on:
+  workflow_dispatch:
+    branches:
+      - main
+    inputs:
+      version:
+        description: 'Version to bump to (e.g., 1.2.3 or "minor")'
+        required: true
+
+jobs:
+  bump_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Bump version with release-it
+        run: npx release-it ${{ github.event.inputs.version }} --only-version

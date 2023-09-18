@@ -4,6 +4,8 @@ env:
   CI: true
   GITHUB_BUILD_NUMBER: ${{ github.run_number }}
   GITHUB_BUILD_ID: ${{ github.run_id }}
+  GITHUB_TOKEN: ${{ secrets.AHMAD_GITHUB_TOKEN }}
+
 
 on:
   push:
@@ -22,12 +24,8 @@ jobs:
       - name: Run Release It
         run: |
           echo Pushing on Branch ${GITHUB_REF##*/}
-          git config --global user.email "ahmed.elkhateeb@ww.com"
-          git config --global user.name "Ahmad Elkhateeb"
           npm ci
           npm run release-ci
-        env:
-          GITHUB_TOKEN: ${{ secrets.AHMAD_GITHUB_TOKEN }}
   deploy-main:
     name: Deploy To Main
     runs-on: ubuntu-latest
