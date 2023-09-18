@@ -21,6 +21,10 @@ jobs:
     if: github.event_name == 'push'
     steps:
       - uses: actions/checkout@v2
+      - name: Configure Git user
+        run: |
+          git config --global user.email "ahmed.elkhateeb@ww.com"
+          git config --global user.name "Ahmad Elkhateeb"
       - name: Run Release It
         run: |
           echo Pushing on Branch ${GITHUB_REF##*/}
