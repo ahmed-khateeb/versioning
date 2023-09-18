@@ -27,7 +27,7 @@ jobs:
           npm ci
           npm run release-ci
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.AHMAD_GITHUB_TOKEN }}
   deploy-main:
     name: Deploy To Main
     runs-on: ubuntu-latest
