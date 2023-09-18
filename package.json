@@ -1,6 +1,6 @@
 {
   "name": "versioning",
-  "version": "0.0.1",
+  "version": "1.4.0",
   "description": "Test Manual release version",
   "main": "index.js",
   "scripts": {
