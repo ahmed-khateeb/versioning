@@ -23,6 +23,7 @@ jobs:
         run: |
           echo Pushing on Branch ${GITHUB_REF##*/}
           git config --global user.email "ahmed.elkhateeb@ww.com"
+          git config --global user.name "Ahmad Elkhateeb"
           npm ci
           npm run release-ci-version
         env:
