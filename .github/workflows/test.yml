@@ -25,17 +25,16 @@ jobs:
         run: |
           git config --global user.email "ahmed.elkhateeb@ww.com"
           git config --global user.name "Ahmad Elkhateeb"
-      - name: Check branch name and extract version
+      - name: Extract version number from commit message
         run: |
-          echo Checking name of Branch ${GITHUB_REF##*/}
-          branch_name=${GITHUB_REF##*/}
-          pattern="^release-v\.[0-9]+\.[0-9]+\.[0-9]+$"
+          commit_message=$(git log -1 --pretty=format:"%s")
+          pattern="Release v([0-9]+\.[0-9]+\.[0-9]+)"
 
-          if [[ $branch_name =~ $pattern ]]; then
-            version=${branch_name#release-v.}
+          if [[ $commit_message =~ $pattern ]]; then
+            version=${BASH_REMATCH[1]}
             echo "RELEASE_VERSION=$version" >> $GITHUB_ENV
           else
-            echo "Branch name doesn't match the desired pattern!"
+            echo "Commit message doesn't contain the following desired pattern: Release vx.xx.x"
             exit 1
           fi
       - name: Run Release It
