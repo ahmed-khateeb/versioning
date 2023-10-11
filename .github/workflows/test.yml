@@ -27,6 +27,7 @@ jobs:
           git config --global user.name "Ahmad Elkhateeb"
       - name: Check branch name and extract version
         run: |
+          echo Checking name of Branch ${GITHUB_REF##*/}
           branch_name=${GITHUB_REF##*/}
           pattern="^release-v\.[0-9]+\.[0-9]+\.[0-9]+$"
 
