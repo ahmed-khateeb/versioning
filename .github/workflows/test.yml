@@ -15,21 +15,37 @@ on:
     types:
       - published
 jobs:
-  # release:
-  #   name: Push Event
-  #   runs-on: ubuntu-latest
-  #   if: github.event_name == 'push'
-  #   steps:
-  #     - uses: actions/checkout@v2
-  #     - name: Configure Git user
-  #       run: |
-  #         git config --global user.email "ahmed.elkhateeb@ww.com"
-  #         git config --global user.name "Ahmad Elkhateeb"
-  #     - name: Run Release It
-  #       run: |
-  #         echo Pushing on Branch ${GITHUB_REF##*/}
-  #         npm ci
-  #         npm run release-ci
+  release:
+    name: Push Event
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    steps:
+      - uses: actions/checkout@v2
+      - name: Configure Git user
+        run: |
+          git config --global user.email "ahmed.elkhateeb@ww.com"
+          git config --global user.name "Ahmad Elkhateeb"
+      - name: Check branch name and extract version
+        run: |
+          branch_name=${GITHUB_REF##*/}
+          pattern="^release-v\.[0-9]+\.[0-9]+\.[0-9]+$"
+
+          if [[ $branch_name =~ $pattern ]]; then
+            version=${branch_name#release-v.}
+            echo "RELEASE_VERSION=$version" >> $GITHUB_ENV
+          else
+            echo "Branch name doesn't match the desired pattern!"
+            exit 1
+          fi
+      - name: Run Release It
+        run: |
+          if [[ -z "${RELEASE_VERSION}" ]]; then
+            echo "Release version not found. Exiting."
+            exit 1
+          fi
+          echo Pushing on Branch ${GITHUB_REF##*/}
+          npm ci
+          npm run release-ci
 
   deploy-main:
     name: Deploy To Main
