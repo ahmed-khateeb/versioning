@@ -62,7 +62,16 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && !github.event.release.prerelease
     steps:
+      - name: Download build-result from artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: build-result
       - uses: actions/checkout@v2
+      - name: Setup
+        run: |
+          echo Running on Branch ${GITHUB_REF##*/}
+          sudo echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          echo "TAG=$(cat build-result.json | jq .tag -r)" >> $GITHUB_ENV
       - name: Echo
         run: |
-          echo Running Release on Branch ${GITHUB_REF##*/}
+          echo Running Release on Branch ${GITHUB_REF##*/} with Tag ${TAG}
