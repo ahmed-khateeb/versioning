@@ -25,6 +25,13 @@ jobs:
         run: |
           git config --global user.email "ahmed.elkhateeb@ww.com"
           git config --global user.name "Ahmad Elkhateeb"
+      - name: Test Setup
+        run: |
+          echo Running on Branch ${GITHUB_REF##*/}
+          npx build
+          echo "TAG=$(cat build-result.json | jq .tag -r)" >> $GITHUB_ENV
+          echo "TEST=$(cat build-result.json)" >> $GITHUB_ENV
+          echo Running Test ${$Test} and TAG ${$TAG}
       - name: Extract version number from commit message
         run: |
           commit_message=$(git log -1 --pretty=format:"%s")
