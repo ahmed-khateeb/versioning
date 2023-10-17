@@ -31,7 +31,7 @@ jobs:
           npx node test.js
           echo "TAG=$(cat build-result.json | jq .tag -r)" >> $GITHUB_ENV
           echo "TEST=$(cat build-result.json)" >> $GITHUB_ENV
-          echo Running Test ${TEST} and TAG ${TAG}
+          echo Running TEST ${TEST} and TAG ${TAG}
       - name: Extract version number from commit message
         run: |
           commit_message=$(git log -1 --pretty=format:"%s")
