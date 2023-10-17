@@ -57,10 +57,11 @@ jobs:
           echo Pushing on Branch ${GITHUB_REF##*/}
           npx release-it ${{ env.RELEASE_VERSION }} --only-version
 
-  deploy-main:
-    name: Deploy To Main
+  test-arts:
+    name: Test Artifacts
+    needs: release
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && !github.event.release.prerelease
+    if: github.event_name == 'push'
     steps:
       - name: Download build-result from artifact
         uses: actions/download-artifact@v2
@@ -75,3 +76,13 @@ jobs:
       - name: Echo
         run: |
           echo Running Release on Branch ${GITHUB_REF##*/} with Tag ${TAG}
+
+  deploy-main:
+    name: Deploy To Main
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release' && !github.event.release.prerelease
+    steps:
+      - uses: actions/checkout@v2
+      - name: Echo
+        run: |
+          echo Running Release on Branch ${GITHUB_REF##*/}
