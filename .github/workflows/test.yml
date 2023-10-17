@@ -28,7 +28,7 @@ jobs:
       - name: Test Setup
         run: |
           echo Running on Branch ${GITHUB_REF##*/}
-          npx build
+          npx node test.js
           echo "TAG=$(cat build-result.json | jq .tag -r)" >> $GITHUB_ENV
           echo "TEST=$(cat build-result.json)" >> $GITHUB_ENV
           echo Running Test ${$Test} and TAG ${$TAG}
