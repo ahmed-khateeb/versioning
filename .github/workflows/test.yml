@@ -73,6 +73,7 @@ jobs:
         run: |
           echo Running on Branch ${GITHUB_REF##*/}
           sudo echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          ls -la
           echo "TAG=$(cat build-result.json | jq .tag -r)" >> $GITHUB_ENV
       - name: Echo
         run: |
