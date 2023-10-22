@@ -5,7 +5,7 @@
     "releaseNotes": "cat CHANGELOG.md | tail -n +3 | sed '/^$/q'"
   },
   "git": {
-    "commitMessage": "chore(release): v${version} [skip-ci]"
+    "commitMessage": "chore(release): v${version} [skip-ci]\n\n$(git diff CHANGELOG.md)"
   },
   "hooks": {
     "before:init": ["git pull"],
