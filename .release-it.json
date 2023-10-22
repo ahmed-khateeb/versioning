@@ -5,11 +5,11 @@
     "releaseNotes": "cat CHANGELOG.md | tail -n +3 | sed '/^$/q'"
   },
   "git": {
-    "commitMessage": "chore(release): v${version} [skip-ci]\n\n$(git diff CHANGELOG.md)"
+    "commitMessage": "chore(release): v${version} [skip-ci]\n\n${changelog}"
   },
   "hooks": {
     "before:init": ["git pull"],
-    "after:bump": "npx auto-changelog -p"
+    "after:bump": "npx auto-changelog -p --template ./changeLog-template.hbs"
   },
   "npm": {
     "publish": false,
