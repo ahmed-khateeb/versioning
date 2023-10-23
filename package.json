@@ -12,7 +12,6 @@
   "license": "ISC",
   "devDependencies": {
     "@release-it/conventional-changelog": "^7.0.2",
-    "release-it": "^16.1.5",
-    "standard-version": "^9.5.0"
+    "release-it": "^16.1.5"
   }
 }
