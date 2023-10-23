@@ -1,3 +1,12 @@
+
+
+## 3.98.0 (2023-10-23)
+
+
+### Features
+
+* Release v3.98.0 ([#10](https://github.com/ahmed-khateeb/versioning/issues/10)) ([977cb47](https://github.com/ahmed-khateeb/versioning/commit/977cb477cac4b1c90e81bdcbe3f7d1725ec510c2)), closes [#8](https://github.com/ahmed-khateeb/versioning/issues/8)
+
 ## [3.97.0](https://github.com/ahmed-khateeb/versioning/compare/3.96.0...3.97.0) (2023-10-22T23:52:56.906Z)
 
 ### Merged pull requests:
