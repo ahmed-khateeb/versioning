@@ -1,7 +1,11 @@
 {
   "github": {
     "release": true,
-    "releaseName": "v${version}"
+    "releaseName": "v${version}",
+    "comments": {
+      "issue": ":tada: This issue has been resolved in version ${version}:tada:\n\n The release is available on [GitHub release](${releaseUrl})",
+      "pr": ":tada: This PR is included in version v${version} :tada:\n\n The release is available on [GitHub release](${releaseUrl})"
+    }
   },
   "git": {
     "commitMessage": "chore(release): v${version} [skip-ci]\n\n${changelog}",
