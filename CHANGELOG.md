@@ -1,5 +1,12 @@
 
 
+## 3.99.0 (2023-10-23)
+
+
+### Performance Improvements
+
+* Release v3.99.0 ([#11](https://github.com/ahmed-khateeb/versioning/issues/11)) ([64ada4e](https://github.com/ahmed-khateeb/versioning/commit/64ada4efe17e604bbeeeaf320cab840e8e96e9da))
+
 ## 3.98.0 (2023-10-23)
 
 
