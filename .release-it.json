@@ -7,12 +7,16 @@
   "git": {
     "commitMessage": "chore(release): v${version} [skip-ci]\n\n${changelog}"
   },
-  "hooks": {
-    "before:init": ["git pull"],
-    "after:bump": "npx auto-changelog -p --template ./changeLog-template.hbs"
-  },
   "npm": {
     "publish": false,
     "ignoreVersion": false
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits"
+      }
+    }
   }
 }
