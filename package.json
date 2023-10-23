@@ -1,6 +1,6 @@
 {
   "name": "versioning",
-  "version": "3.96.0",
+  "version": "3.97.0",
   "description": "Test Manual release version",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@release-it/conventional-changelog": "^7.0.2",
     "release-it": "^16.1.5"
   }
 }
