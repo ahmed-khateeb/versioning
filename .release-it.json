@@ -2,6 +2,7 @@
   "github": {
     "release": true,
     "releaseName": "v${version}",
+    "tokenRef": "GITHUB_TOKEN",
     "comments": {
       "submit": true,
       "issue": ":tada: This issue has been resolved in version ${version}:tada:\n\n The release is available on [GitHub release](${releaseUrl})",
