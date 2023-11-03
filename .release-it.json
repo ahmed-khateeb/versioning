@@ -5,8 +5,7 @@
     "tokenRef": "GITHUB_TOKEN",
     "comments": {
       "submit": true,
-      "issue": ":tada: This issue has been resolved in version ${version}:tada:\n\n The release is available on [GitHub release](${releaseUrl})",
-      "pr": ":tada: This PR is included in version v${version} :tada:\n\n The release is available on [GitHub release](${releaseUrl})"
+      "pr": "This PR is included in version"
     }
   },
   "git": {
