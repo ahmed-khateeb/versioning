@@ -1,5 +1,12 @@
 
 
+## 4.46.0 (2023-11-03)
+
+
+### Features
+
+* Release v4.46.0 ([#16](https://github.com/ahmed-khateeb/versioning/issues/16)) ([#17](https://github.com/ahmed-khateeb/versioning/issues/17)) ([451b70d](https://github.com/ahmed-khateeb/versioning/commit/451b70d6705265942c251498926deba9bd0afc1a))
+
 ## 4.45.0 (2023-10-24)
 
 
