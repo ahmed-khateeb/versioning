@@ -9,19 +9,12 @@
     }
   },
   "git": {
+    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
     "commitMessage": "chore(release): v${version} [skip-ci]\n\n${changelog}",
     "tagName": "v${version}"
   },
   "npm": {
     "publish": false,
     "ignoreVersion": false
-  },
-  "plugins": {
-    "@release-it/conventional-changelog": {
-      "infile": "CHANGELOG.md",
-      "preset": {
-        "name": "conventionalcommits"
-      }
-    }
   }
 }
