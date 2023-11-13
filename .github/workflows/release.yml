@@ -45,7 +45,7 @@ jobs:
           fi
           echo Pushing on Branch ${GITHUB_REF##*/}
           npm ci
-          npx release-it ${{ env.RELEASE_VERSION }} --only-version
+          npx release-it ${{ env.RELEASE_VERSION }} --only-version -VV
 
   deploy-main:
     name: Deploy To Main
